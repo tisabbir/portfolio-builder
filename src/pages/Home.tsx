@@ -87,7 +87,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 px-6 md:px-16 text-center">
+      <section className="pt-16 pb-4 md:pt-24 px-6 md:px-16 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Showcase Your Work?</h2>
           <p className="text-xl opacity-80 mb-8">
@@ -100,6 +100,28 @@ const Home = () => {
           </Link>
         </div>
       </section>
+       {/* Footer Section */}
+<section className="py-8 px-6 md:px-16 bg-[#1A0B2E] border-t border-[#2B0B3A] mt-24">
+  <div className="max-w-6xl mx-auto">
+    <div className="flex flex-col items-center justify-center">
+      <div className="w-16 h-1 bg-gradient-to-r from-[#7127BA] to-transparent mb-6 rounded-full"></div>
+      <p className="text-center text-sm md:text-base text-gray-300">
+        © {new Date().getFullYear()} Portfolio Builder. Developed by{" "}
+        <a 
+          href="https://www.linkedin.com/in/mdtisabbir/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-[#7127BA] hover:text-[#8138d1] font-medium transition-colors"
+        >
+          MD Tarekul Islam Sabbir
+        </a>
+      </p>
+      <p className="text-xs text-gray-500 mt-2">
+        Crafted with passion to help professionals shine
+      </p>
+    </div>
+  </div>
+</section>
     </div>
   );
 };
