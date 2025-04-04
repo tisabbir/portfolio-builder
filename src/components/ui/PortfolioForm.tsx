@@ -488,7 +488,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
           variant="outline" 
           size="sm" 
           onClick={addProject}
-          className="flex items-center gap-1"
+          className="flex items-center gap-1 text-black"
         >
           <Plus className="h-4 w-4" /> Add Project
         </Button>
@@ -498,7 +498,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
         <Card key={index} className="bg-[#1A0B2E] border border-gray-700">
           <CardContent className="p-4 space-y-4">
             <div className="flex justify-between items-start">
-              <h4 className="text-lg font-medium">Project {index + 1}</h4>
+              <h4 className="text-lg text-white font-medium">Project {index + 1}</h4>
               <Button 
                 type="button" 
                 variant="ghost" 
@@ -512,7 +512,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
             
             <div className="space-y-3">
               <div>
-                <label className="text-sm font-medium block mb-1">Project Title</label>
+                <label className="text-sm text-white font-medium block mb-1">Project Title</label>
                 <Input 
                   value={project.title} 
                   onChange={(e) => updateProject(index, 'title', e.target.value)}
@@ -521,7 +521,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
               </div>
               
               <div>
-                <label className="text-sm font-medium block mb-1">Description</label>
+                <label className="text-sm text-white font-medium block mb-1">Description</label>
                 <Textarea 
                   value={project.description} 
                   onChange={(e) => updateProject(index, 'description', e.target.value)}
@@ -531,7 +531,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
               </div>
               
               <div>
-                <label className="text-sm font-medium block mb-1">Live URL (Optional)</label>
+                <label className="text-sm text-white font-medium block mb-1">Live URL (Optional)</label>
                 <Input 
                   value={project.link || ""} 
                   onChange={(e) => updateProject(index, 'link', e.target.value)}
@@ -540,7 +540,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
               </div>
               
               <div>
-                <label className="text-sm font-medium block mb-1">GitHub URL (Optional)</label>
+                <label className="text-sm text-white font-medium block mb-1">GitHub URL (Optional)</label>
                 <Input 
                   value={project.github || ""} 
                   onChange={(e) => updateProject(index, 'github', e.target.value)}
@@ -549,7 +549,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
               </div>
               
               <div>
-                <label className="text-sm font-medium block mb-1">Image URL</label>
+                <label className="text-sm text-white font-medium block mb-1">Image URL</label>
                 <Input 
                   value={project.imageUrl} 
                   onChange={(e) => updateProject(index, 'imageUrl', e.target.value)}
