@@ -572,9 +572,9 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
           variant="outline" 
           size="sm" 
           onClick={addExperience}
-          className="flex items-center gap-1"
+          className="flex items-center gap-1 text-black"
         >
-          <Plus className="h-4 w-4" /> Add Position
+          <Plus className="h-4 w-4 " /> Add Position
         </Button>
       </div>
       
@@ -582,7 +582,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
         <Card key={index} className="bg-[#1A0B2E] border border-gray-700">
           <CardContent className="p-4 space-y-4">
             <div className="flex justify-between items-start">
-              <h4 className="text-lg font-medium">Position {index + 1}</h4>
+              <h4 className="text-lg font-medium text-white">Position {index + 1}</h4>
               <Button 
                 type="button" 
                 variant="ghost" 
@@ -596,7 +596,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
             
             <div className="space-y-3">
               <div>
-                <label className="text-sm font-medium block mb-1">Job Title</label>
+                <label className="text-sm text-white font-medium block mb-1">Job Title</label>
                 <Input 
                   value={exp.title} 
                   onChange={(e) => updateExperience(index, 'title', e.target.value)}
@@ -605,7 +605,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
               </div>
               
               <div>
-                <label className="text-sm font-medium block mb-1">Company</label>
+                <label className="text-sm text-white font-medium block mb-1">Company</label>
                 <Input 
                   value={exp.company} 
                   onChange={(e) => updateExperience(index, 'company', e.target.value)}
@@ -614,7 +614,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
               </div>
               
               <div>
-                <label className="text-sm font-medium block mb-1">Time Period</label>
+                <label className="text-sm text-white font-medium block mb-1">Time Period</label>
                 <Input 
                   value={exp.period} 
                   onChange={(e) => updateExperience(index, 'period', e.target.value)}
@@ -623,7 +623,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
               </div>
               
               <div>
-                <label className="text-sm font-medium block mb-1">Description</label>
+                <label className="text-sm text-white font-medium block mb-1">Description</label>
                 <Textarea 
                   value={exp.description} 
                   onChange={(e) => updateExperience(index, 'description', e.target.value)}
@@ -644,9 +644,9 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
             variant="outline" 
             size="sm" 
             onClick={addEducation}
-            className="flex items-center gap-1"
+            className="flex items-center text-black gap-1"
           >
-            <Plus className="h-4 w-4" /> Add Education
+            <Plus className="h-4 w-4 " /> Add Education
           </Button>
         </div>
         
@@ -654,7 +654,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
           <Card key={index} className="bg-[#1A0B2E] border border-gray-700 mb-4">
             <CardContent className="p-4 space-y-4">
               <div className="flex justify-between items-start">
-                <h4 className="text-lg font-medium">Education {index + 1}</h4>
+                <h4 className="text-lg font-medium text-white">Education {index + 1}</h4>
                 <Button 
                   type="button" 
                   variant="ghost" 
@@ -668,7 +668,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
               
               <div className="space-y-3">
                 <div>
-                  <label className="text-sm font-medium block mb-1">Institution</label>
+                  <label className="text-sm text-white font-medium block mb-1">Institution</label>
                   <Input 
                     value={edu.institution} 
                     onChange={(e) => updateEducation(index, 'institution', e.target.value)}
@@ -677,7 +677,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
                 </div>
                 
                 <div>
-                  <label className="text-sm font-medium block mb-1">Degree/Certificate</label>
+                  <label className="text-sm text-white font-medium block mb-1">Degree/Certificate</label>
                   <Input 
                     value={edu.degree} 
                     onChange={(e) => updateEducation(index, 'degree', e.target.value)}
@@ -686,7 +686,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
                 </div>
                 
                 <div>
-                  <label className="text-sm font-medium block mb-1">Time Period</label>
+                  <label className="text-sm text-white font-medium block mb-1">Time Period</label>
                   <Input 
                     value={edu.period} 
                     onChange={(e) => updateEducation(index, 'period', e.target.value)}
