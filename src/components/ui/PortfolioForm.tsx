@@ -259,7 +259,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
           <FormItem>
             <FormLabel>Full Name</FormLabel>
             <FormControl>
-              <Input placeholder="Your name" {...field} />
+              <Input  placeholder="Your name" {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>
