@@ -717,7 +717,7 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
         </Card>
 
         <div className="flex justify-end">
-          <Button type="submit" disabled={isSubmitting}>
+          <Button variant="secondary" className="" type="submit" disabled={isSubmitting}>
             {isSubmitting ? "Creating..." : "Create Portfolio"}
           </Button>
         </div>
