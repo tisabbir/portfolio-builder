@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import axios from 'axios';
 import { Textarea } from "@/components/ui/textarea";
 import {
   Form,
@@ -210,34 +211,30 @@ export function PortfolioForm({ onSubmitData, activeTab = "basic" }: PortfolioFo
   async function onSubmit(data: PortfolioFormData) {
     setIsSubmitting(true);
     try {
-      // In a real application, you would send this data to your backend
-      console.log("Form data submitted:", data);
-      
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Generate a unique portfolio ID (in a real app, this would come from the backend)
-      const portfolioId = Math.random().toString(36).substring(2, 8);
-      
       const fullData = {
         ...data,
-        id: portfolioId,
+        projects: JSON.parse(data.projectsData),
+        experience: JSON.parse(data.experienceData),
+        education: data.educationData ? JSON.parse(data.educationData) : [],
         createdAt: new Date().toISOString(),
       };
-      
+  
+      // Send form data to your backend
+      const res = await axios.post("http://localhost:5000/api/portfolio", fullData);
+  
       toast({
         title: "Portfolio created!",
-        description: `Your portfolio has been created successfully.`,
+        description: "Your portfolio has been successfully saved.",
       });
-      
-      // Pass the data to the parent component
+  
+      // Trigger the parent callback
       if (onSubmitData) {
-        onSubmitData(fullData);
+        onSubmitData(res.data); // Assuming res.data contains the saved portfolio object
       } else {
-        // If no callback is provided, redirect to the portfolio page
-        window.location.href = `/portfolio/${portfolioId}`;
+        window.location.href = `/portfolio/${res.data._id}`;
       }
     } catch (error) {
+      console.error("Error saving portfolio:", error);
       toast({
         title: "Something went wrong",
         description: "Please try again later.",
