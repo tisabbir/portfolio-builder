@@ -1,46 +1,60 @@
+import { motion } from "framer-motion";
 
-interface HeroProps {
-  name?: string;
-  title?: string;
-  accentColor?: string;
-  imageUrl?: string;
-}
-
-export const Hero = ({ 
-  name = "Ibrahim Memon", 
-  title = "A Designer who", 
-  accentColor = "#7127BA",
-  imageUrl = "https://placehold.co/200x200/4a3b63/4a3b63" 
-}: HeroProps) => {
+export const Hero = ({ name, title, imageUrl, accentColor, socialLinks }: any) => {
   return (
-    <section className="flex justify-between relative p-[100px] max-md:flex-col max-md:p-[50px] max-sm:p-5">
-      <div className="ml-[250px] max-md:ml-0">
-        <div className="text-[19px] tracking-[-0.5px] mb-5">
-          <span>Hello! I Am </span>
-          <span style={{ color: accentColor }}>{name}</span>
-        </div>
-        <div className="text-[17px] tracking-[0.02em] underline mb-2.5">
+    <section className="relative text-white py-16 px-4 md:px-12">
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#7127BA]/30 to-[#11071F] blur-3xl opacity-20" />
+
+      <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center">
+        <motion.img
+          src={imageUrl}
+          alt="Profile"
+          className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-[--accent-color] shadow-xl object-cover"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        />
+
+        <motion.h1
+          className="text-3xl md:text-5xl font-bold mt-6"
+          style={{ color: "var(--accent-color)" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          {name}
+        </motion.h1>
+
+        <motion.h2
+          className="text-xl md:text-2xl text-gray-300 mt-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
           {title}
-        </div>
-        <div className="text-[50px] tracking-[0.02em] leading-[1.2]">
-          <span>Judges a book by its </span>
-          <span style={{ color: accentColor }}>cover</span>
-          <span>...</span>
-        </div>
-        <div className="text-[11px] tracking-[0.02em] mt-2.5">
-          Because if the cover does not impress you what else can?
-        </div>
-      </div>
-      <div className="relative">
-        <div className="relative w-[200px] h-[200px]">
-          <img
-            src={imageUrl}
-            alt="Avatar"
-            className="w-full h-full rounded-[10px]"
-          />
-          <div className="absolute bg-[#2B0B3A] p-2.5 rounded-[50%] -right-5 -bottom-5">
-            <i className="ti ti-device-laptop" />
-          </div>
+        </motion.h2>
+
+        <div className="mt-6 flex gap-4 justify-center">
+          {socialLinks.github && (
+            <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">
+              <i className="fab fa-github text-2xl" />
+            </a>
+          )}
+          {socialLinks.linkedin && (
+            <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">
+              <i className="fab fa-linkedin text-2xl" />
+            </a>
+          )}
+          {socialLinks.twitter && (
+            <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">
+              <i className="fab fa-twitter text-2xl" />
+            </a>
+          )}
+          {socialLinks.website && (
+            <a href={socialLinks.website} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">
+              <i className="fas fa-globe text-2xl" />
+            </a>
+          )}
         </div>
       </div>
     </section>

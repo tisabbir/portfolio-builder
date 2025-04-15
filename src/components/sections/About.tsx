@@ -1,34 +1,16 @@
-
-interface AboutProps {
-  title?: string;
-  company?: string;
-  about?: string;
-}
-
-export const About = ({ 
-  title = "Software Engineer", 
-  company = "Company", 
-  about = "A self-taught UI/UX designer, functioning in the industry for 3+ years now. I make meaningful and delightful digital products that create an equilibrium between user needs and business goals."
-}: AboutProps) => {
-  // Split the about text into lines for better presentation
-  const aboutLines = about.split('. ');
-  
+export const About = ({ title, company, about, location }: any) => {
   return (
-    <section className="mt-[50px] px-[100px] py-0 max-sm:px-5 max-sm:py-[50px]">
-      <h2 className="text-[50px] tracking-[0.02em] mb-5">
-        I'm a {title}.|
-      </h2>
-      <div className="text-2xl mb-5">
-        <span>Currently, I'm a {title} at </span>
-        <span>{company}</span>
-      </div>
-      <div className="text-[22px] leading-normal max-sm:text-lg">
-        {aboutLines.map((line, index) => (
-          <span key={index}>
-            {line}{index < aboutLines.length - 1 ? '. ' : ''}
-            {index < aboutLines.length - 1 && <br />}
-          </span>
-        ))}
+    <section className="py-16 px-6 md:px-12 bg-[#1A0B2E] rounded-xl shadow-lg max-w-4xl mx-auto my-10">
+      <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-white">About Me</h2>
+      <p className="text-gray-300 text-lg leading-relaxed mb-6">{about}</p>
+      
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm text-gray-400 border-t border-[#7127BA]/30 pt-4">
+        <div>
+          <span className="text-white font-medium">Role:</span> {title} at {company}
+        </div>
+        <div>
+          <span className="text-white font-medium">Location:</span> {location}
+        </div>
       </div>
     </section>
   );

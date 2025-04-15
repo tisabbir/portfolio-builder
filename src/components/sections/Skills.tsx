@@ -1,32 +1,16 @@
-export const Skills = () => {
+export const Skills = ({ skills = [] }: any) => {
   return (
-    <section className="text-center px-[100px] py-[50px] max-sm:px-5 max-sm:py-[50px]">
-      <div className="text-xl leading-normal mb-10">
-        <span>I'm currently looking to join a </span>
-        <span className="text-[#7127BA]">cross-functional</span>
-        <span> team</span>
-        <br />
-        <span>
-          that values improving people's lives through accessible design
-        </span>
-      </div>
-      <div className="flex flex-col gap-5 items-center">
-        <div className="flex gap-5 text-2xl">
-          <i className="ti ti-brand-figma" />
-          <i className="ti ti-brand-react" />
-          <i className="ti ti-brand-css3" />
-          <i className="ti ti-brand-html5" />
-          <i className="ti ti-brand-javascript" />
-          <i className="ti ti-brand-git" />
-        </div>
-        <div className="flex gap-5 text-2xl">
-          <i className="ti ti-brand-github" />
-          <i className="ti ti-brand-vscode" />
-          <i className="ti ti-brand-sketch" />
-          <i className="ti ti-brand-notion" />
-          <i className="ti ti-brand-slack" />
-          <i className="ti ti-brand-discord" />
-        </div>
+    <section className="py-16 px-6 md:px-12 bg-[#1A0B2E] rounded-xl shadow-lg max-w-4xl mx-auto my-10">
+      <h2 className="text-2xl md:text-3xl font-semibold text-white mb-6">Skills</h2>
+      <div className="flex flex-wrap gap-4">
+        {skills.map((skill: string, i: number) => (
+          <span
+            key={i}
+            className="bg-[#7127BA]/20 text-[#7127BA] px-4 py-1 rounded-full text-sm font-medium shadow-sm border border-[#7127BA]/40 hover:bg-[#7127BA]/30 transition-all"
+          >
+            {skill}
+          </span>
+        ))}
       </div>
     </section>
   );
