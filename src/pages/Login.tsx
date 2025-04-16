@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const { login, loginWithGoogle } = useAuth();
@@ -34,7 +36,7 @@ const Login = () => {
         onSubmit={handleSubmit}
         className="w-full max-w-md bg-[#1A0B2E] p-8 rounded-lg shadow-md space-y-6"
       >
-        <h2 className="text-2xl font-bold text-white text-center">Create an Account</h2>
+        <h2 className="text-2xl font-bold text-white text-center">Login to Your Account</h2>
 
         {error && <p className="text-red-500 text-sm text-center">{error}</p>}
 
@@ -55,20 +57,20 @@ const Login = () => {
           required
         />
 
-        <button
-          type="submit"
-          className="w-full bg-[--accent-color] py-3 rounded font-semibold text-white hover:opacity-90 transition"
-        >
-          Sign Up
-        </button>
+<Button type="submit" size="lg" className="bg-[#7127BA] hover:bg-[#8138d1] text-white font-semibold px-8 w-full">
+                    Log In
+                </Button>
 
-        <button
-          type="button"
-          onClick={handleGoogleLogin}
-          className="w-full border border-[--accent-color] text-[--accent-color] py-3 rounded font-medium hover:bg-[--accent-color]/10 transition"
-        >
-          Continue with Google
-        </button>
+                <button
+                    type="button"
+                    onClick={handleGoogleLogin}
+                    className="w-full border border-white text-white py-3 rounded font-medium hover:bg-[--accent-color]/10 transition flex items-center gap-6 justify-center"
+                >
+                    Continue with Google
+                    <FaGoogle className="text-2xl" />
+                </button>
+
+                <p className="text-white text-center">Don't have an account? <Link to={'/signup'} className="text-[#7127BA]">Sign Up</Link> </p>
       </form>
     </div>
   );

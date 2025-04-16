@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { FaGoogle } from "react-icons/fa";
 
@@ -71,7 +71,7 @@ const Signup = () => {
                     Continue with Google
                     <FaGoogle className="text-2xl" />
                 </button>
-
+                <p className="text-white text-center">Already have an account? <Link to={'/login'} className="text-[#7127BA]">Log In</Link> </p>
 
             </form>
         </div>
