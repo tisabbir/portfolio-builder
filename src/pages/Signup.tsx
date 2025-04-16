@@ -8,13 +8,13 @@ const Signup = () => {
     const { signup, loginWithGoogle } = useAuth();
     const navigate = useNavigate();
 
-    const [formData, setFormData] = useState({ email: "", password: "" });
+    const [formData, setFormData] = useState({ name: "", email: "", password: "" });
     const [error, setError] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            await signup(formData.email, formData.password);
+            await signup(formData.email, formData.password, formData.name);
             navigate("/"); // or wherever you want
         } catch (err: any) {
             setError(err.message);
@@ -39,7 +39,14 @@ const Signup = () => {
                 <h2 className="text-2xl font-bold text-white text-center">Create an Account</h2>
 
                 {error && <p className="text-red-500 text-sm text-center">{error}</p>}
-
+                    <input
+                        type="text"
+                        placeholder="Your full name" className="w-full p-3 rounded bg-[#2B1740] text-white placeholder-gray-400"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        required
+                    />
+                
                 <input
                     type="email"
                     placeholder="Email"

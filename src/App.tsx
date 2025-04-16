@@ -10,9 +10,10 @@ import Create from "./pages/Create";
 import Gallery from "./pages/Gallery";
 import Portfolio from "./pages/Portfolio";
 import NotFound from "./pages/NotFound";
-import Signup from "./pages/SignUp";
+import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import { PrivateRoute } from "./components/PrivateRoute";
+import Profile from "./pages/Profile";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
           {/* Wrap protected routes using PrivateRoute */}
           <Route element={<PrivateRoute />}>
             <Route path="/create" element={<Create />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

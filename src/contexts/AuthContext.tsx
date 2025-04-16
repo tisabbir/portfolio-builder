@@ -15,14 +15,19 @@ import {
   } from "firebase/auth";
   import { auth, googleProvider } from "../firebase";
   
+  import { updateProfile } from "firebase/auth";
+
+
+
   type AuthContextType = {
     user: User | null;
     loading: boolean;
-    signup: (email: string, password: string) => Promise<any>;
+    signup: (email: string, password: string, name: string) => Promise<any>;
     login: (email: string, password: string) => Promise<any>;
     loginWithGoogle: () => Promise<any>;
     logout: () => Promise<void>;
   };
+  
   
   const AuthContext = createContext<AuthContextType | null>(null);
   
@@ -30,9 +35,12 @@ import {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
   
-    const signup = (email: string, password: string) => {
-      return createUserWithEmailAndPassword(auth, email, password);
+    const signup = async (email: string, password: string, name: string) => {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(userCredential.user, { displayName: name });
+      return userCredential;
     };
+    
   
     const login = (email: string, password: string) => {
       return signInWithEmailAndPassword(auth, email, password);
