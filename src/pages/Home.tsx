@@ -1,10 +1,12 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { NavBar } from "@/components/sections/NavBar";
 
 const Home = () => {
   return (
     <div className="min-h-screen bg-[#11071F] text-white">
+      <NavBar />
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 px-6 md:px-16">
         <div className="max-w-5xl mx-auto">
